@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Assistant Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      text-align: center;
+    }
+    .light {
+      font-size: 100px;
+      color: #ccc;
+    }
+    .light.on {
+      color: #ff0;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="light">💡</div>
+    <button onclick="toggleLight()">Toggle Light</button>
+  </div>
+  <script>
+    const lightElement = document.querySelector('.light');
+
+    function toggleLight() {
+      lightElement.classList.toggle('on');
+    }
+  </script>
+</body>
+</html>
