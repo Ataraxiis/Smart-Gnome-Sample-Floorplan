@@ -3,45 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Assistant Demo</title>
+  <title>SVG Interaction</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-    }
     .container {
+      width: 100%;
       text-align: center;
-    }
-    .light {
-      font-size: 100px;
-      color: #ccc;
-    }
-    .light.on {
-      color: #ff0;
-    }
-    button {
-      font-size: 18px;
-      padding: 10px 20px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="light">💡</div>
-    <button onclick="toggleLight()">Toggle Light</button>
+    <object id="svg-object" data="Floorplanner Background With Logo SVG.svg" type="image/svg+xml"></object>
   </div>
   <script>
-    const lightElement = document.querySelector('.light');
+    document.getElementById('svg-object').addEventListener('load', function() {
+      const svgDocument = this.contentDocument;
+      const lightBedroom = svgDocument.getElementById('light_bedroom');
 
-    function toggleLight() {
-      lightElement.classList.toggle('on');
-    }
+      if (lightBedroom) {
+        lightBedroom.addEventListener('click', () => {
+          const currentOpacity = lightBedroom.style.opacity;
+
+          if (currentOpacity === '0') {
+            lightBedroom.style.opacity = '1';
+          } else {
+            lightBedroom.style.opacity = '0';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
