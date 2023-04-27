@@ -145,6 +145,24 @@ document.getElementById('svg-object').addEventListener('load', function() {
           });
         }
 
+
+    /*Roomba Options*/
+    const roombaDocked = svgDocument.getElementById('roomba_docked'); // get the "roomba_docked" element
+    let isMoving = false; // flag to keep track of the element's movement state
+    let initialPositionY; // variable to store the initial Y position of the element
+
+    // add a click event listener to the "roomba_docked" element
+    roombaDocked.addEventListener('click', () => {
+      if (isMoving) { // if the element is already moving
+        roombaDocked.style.transform = `translateY(${initialPositionY}px)`; // reset the element to its initial position
+        isMoving = false; // set the moving flag to false
+      } else { // if the element is not moving
+        initialPositionY = roombaDocked.getBoundingClientRect().top; // store the initial Y position of the element
+        roombaDocked.style.transform = `translateY(${initialPositionY - 50}px)`; // move the element up by 50 pixels
+        isMoving = true; // set the moving flag to true
+      }
+    });
+
     
 
 
