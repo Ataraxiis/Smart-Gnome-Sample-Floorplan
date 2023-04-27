@@ -12,14 +12,24 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonSpareRoom = svgDocument.getElementById('button_spareroom');
     const cameraImage = svgDocument.getElementById('image19542');
     const buttonCamera = svgDocument.getElementById('button_kitchen_camera');
-    const doorLocked = svgDocument.getElementById('bg_door_locked');
-    const doorUnlocked = svgDocument.getElementById('bg_door_unlocked');
-    const doorButton = svgDocument.getElementById('button_door_lock');
     const hexButton = svgDocument.getElementById('button_living_room');
     const hexMenu = svgDocument.getElementById('layer6');
     const hexLightButton = svgDocument.getElementById('hex_light_button');
     const lightLivingRoom = svgDocument.getElementById('light_livingroom')
     let hexLightButtonOpacity = 0.28;
+    const buttonDoorLock = svgDocument.getElementById('button_door_lock');
+    const bgDoorLocked = svgDocument.getElementById('bg_door_locked');
+    const bgDoorUnlocked = svgDocument.getElementById('bg_door_unlocked');
+  
+    buttonDoorLock.addEventListener('click', () => {
+      if (bgDoorLocked.style.opacity === '1') {
+        bgDoorLocked.style.opacity = '0';
+        bgDoorUnlocked.style.opacity = '1';
+      } else {
+        bgDoorLocked.style.opacity = '1';
+        bgDoorUnlocked.style.opacity = '0';
+      }
+    });
   
     
     
