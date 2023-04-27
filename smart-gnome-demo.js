@@ -154,51 +154,48 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
 
 
-    function spin(elem) {
-      let rotation = 0;
-      const intervalId = setInterval(() => {
-        rotation += 5;
-        elem.setAttribute('transform', `rotate(${rotation} 100 100)`);
-      }, 50);
-      return intervalId;
+    // initially hide roombaRunning and roombaReturning
+    roombaRunning.style.display = 'none';
+    roombaReturning.style.display = 'none';
+    
+    // define the function that rotates an element by a certain degree
+    const rotateElement = (element, degree) => {
+      element.style.transform = `rotate(${degree}deg)`;
     }
     
-
-    function showElement(elem) {
-      elem.style.display = 'inline';
-    }
-  
-    function hideElement(elem) {
-      elem.style.display = 'none';
-    }
-  
-    function spin(elem) {
-      let rotation = 0;
-      const intervalId = setInterval(() => {
-        rotation += 5;
-        elem.setAttribute('transform', `rotate(${rotation} 100 100)`);
+    // define the function that spins an element
+    const spinElement = (element) => {
+      let degree = 0;
+      const spin = setInterval(() => {
+        rotateElement(element, degree);
+        degree += 1;
       }, 50);
-      return intervalId;
+      
+      return spin;
     }
-  
-    function stopSpin(intervalId) {
-      clearInterval(intervalId);
-    }
-  
-    hideElement(roombaReturning);
-    hideElement(roombaRunning);
-  
+    
+    // set up click event listener for roombaDocked
     roombaDocked.addEventListener('click', () => {
-      hideElement(roombaDocked);
-      showElement(roombaRunning);
-      const intervalId = spin(roombaRunning);
+      // hide roombaDocked and show roombaRunning
+      roombaDocked.style.display = 'none';
+      roombaRunning.style.display = 'block';
+      
+      // spin roombaRunning
+      const spin = spinElement(roombaRunning);
+      
+      // set up click event listener for roombaRunning
       roombaRunning.addEventListener('click', () => {
-        stopSpin(intervalId);
-        hideElement(roombaRunning);
-        showElement(roombaReturning);
+        // stop spinning roombaRunning and hide it
+        clearInterval(spin);
+        roombaRunning.style.display = 'none';
+        
+        // show roombaReturning
+        roombaReturning.style.display = 'block';
+        
+        // set up timer to hide roombaReturning and show roombaDocked after 3 seconds
         setTimeout(() => {
-          hideElement(roombaReturning);
-          showElement(roombaDocked);
+          roombaReturning.style.display = 'none';
+          roombaDocked.style.display = 'block';
         }, 3000);
       });
     });
