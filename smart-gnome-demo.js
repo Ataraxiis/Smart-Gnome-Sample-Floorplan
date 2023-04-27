@@ -10,8 +10,21 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonCloset = svgDocument.getElementById('button_closet');
     const lightSpareRoom = svgDocument.getElementById('light_spareroom');
     const buttonSpareRoom = svgDocument.getElementById('button_spareroom');
+    const cameraImage = svgDocument.getElementById('image19542');
+    const buttonCamera = svgDocument.getElementById('bg_camera_image');
     const buttonLocked = svgDocument.getElementById('button_locked');
     const buttonUnlocked = svgDocument.getElementById('button_unlocked');
+    const buttonLivingRoom = svgDocument.getElementById('button_living_room');
+    const hexMenu = svgDocument.getElementById('layer6');
+
+    /*Show/Hide Hex menu on click*/
+    buttonLivingRoom.addEventListener('click', () => {
+      if (hexMenu.style.display === 'none') {
+        hexMenu.style.display = 'inline';
+      } else {
+        hexMenu.style.display = 'none';
+      }
+    
 
   
 
@@ -75,6 +88,19 @@ document.getElementById('svg-object').addEventListener('load', function() {
         }
       });
     }
+    
+    if (cameraImage && buttonCamera) {
+      buttonCamera.addEventListener('click', () => {
+        const currentOpacity = buttonCamera.style.opacity;
+  
+        if (currentOpacity === '0') {
+          buttonCamera.style.opacity = '1';
+        } else {
+          buttonCamera.style.opacity = '0';
+        }
+      });
+    }
+
     
     buttonLocked.addEventListener('click', () => {
       buttonLocked.style.display = 'none';
