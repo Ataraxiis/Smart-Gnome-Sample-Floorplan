@@ -11,7 +11,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const lightSpareRoom = svgDocument.getElementById('light_spareroom');
     const buttonSpareRoom = svgDocument.getElementById('button_spareroom');
     const cameraImage = svgDocument.getElementById('image19542');
-    const buttonCamera = svgDocument.getElementById('bg_camera_image');
+    const buttonCamera = svgDocument.getElementById('button_kitchen_camera');
     const buttonLocked = svgDocument.getElementById('button_locked');
     const buttonUnlocked = svgDocument.getElementById('button_unlocked');
     const hexButton = svgDocument.getElementById('button_living_room');
