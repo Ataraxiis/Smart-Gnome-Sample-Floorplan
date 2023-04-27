@@ -10,6 +10,9 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonCloset = svgDocument.getElementById('button_closet');
     const lightSpareRoom = svgDocument.getElementById('light_spareroom');
     const buttonSpareRoom = svgDocument.getElementById('button_spareroom');
+    const buttonLocked = svgDocument.getElementById('button_locked');
+    const buttonUnlocked = svgDocument.getElementById('button_unlocked');
+
   
 
     /*Turn all the lights on and off with buttons*/
@@ -72,6 +75,16 @@ document.getElementById('svg-object').addEventListener('load', function() {
         }
       });
     }
+    
+    buttonLocked.addEventListener('click', () => {
+      buttonLocked.style.display = 'none';
+      buttonUnlocked.style.display = 'inline';
+    });
+
+    buttonUnlocked.addEventListener('click', () => {
+      buttonUnlocked.style.display = 'none';
+      buttonLocked.style.display = 'inline';
+    });
 
   });
   
