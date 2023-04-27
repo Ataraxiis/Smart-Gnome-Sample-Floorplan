@@ -26,8 +26,8 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="1.2551867"
-     inkscape:cx="883.93225"
-     inkscape:cy="594.33389"
+     inkscape:cx="902.25621"
+     inkscape:cy="530.59836"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -3741,7 +3741,7 @@ WsMZs7eU3QAAAABJRU5ErkJggg==
        id="bg_door_unlocked"
        x="1224.162"
        y="347.12067"
-       style="display:inline;opacity:0"
+       style="display:inline;opacity:1"
        inkscape:svg-dpi="1" /><image
        width="150"
        height="100"
@@ -17439,4 +17439,5 @@ AElFTkSuQmCC
        width="93.213219"
        height="122.6909"
        x="1249.2166"
-       y="338.59506" /></g></svg>
+       y="338.59506"
+       inkscape:label="button_door_lock" /></g></svg>
