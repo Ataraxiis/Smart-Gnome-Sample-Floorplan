@@ -6,7 +6,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonDoorLock = svgDocument.getElementById('button_door_lock');
     const bgDoorLocked = svgDocument.getElementById('bg_door_locked');
     const bgDoorUnlocked = svgDocument.getElementById('bg_door_unlocked');
-
+    bgDoorUnlocked.style.display = 'none';
+    bgDoorUnlocked.style.opacity = 1;
 
     buttonDoorLock.addEventListener('click', () => {
       if (bgDoorLocked.style.display === 'none') {
