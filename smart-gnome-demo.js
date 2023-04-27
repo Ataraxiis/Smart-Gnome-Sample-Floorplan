@@ -11,6 +11,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const lightSpareRoom = svgDocument.getElementById('light_spareroom');
     const buttonSpareRoom = svgDocument.getElementById('button_spareroom');
   
+
+    /*Turn all the lights on and off with buttons*/
     if (lightBedroom && buttonBedroom) {
       buttonBedroom.addEventListener('click', () => {
         const currentOpacity = lightBedroom.style.opacity;
