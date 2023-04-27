@@ -23,7 +23,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
         hexMenu.style.display = 'inline';
       } else {
         hexMenu.style.display = 'none';
-      }
+      }  
+    });
     
 
   
