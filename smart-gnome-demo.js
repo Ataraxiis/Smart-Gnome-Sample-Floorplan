@@ -1,5 +1,26 @@
 document.getElementById('svg-object').addEventListener('load', function() {
     const svgDocument = this.contentDocument;
+ 
+
+    /*Door Lock & Unlock*/
+    const buttonDoorLock = svgDocument.getElementById('button_door_lock');
+    const bgDoorLocked = svgDocument.getElementById('bg_door_locked');
+    const bgDoorUnlocked = svgDocument.getElementById('bg_door_unlocked');
+
+
+    buttonDoorLock.addEventListener('click', () => {
+      if (bgDoorLocked.style.display === 'none') {
+        bgDoorLocked.style.display = 'inline';
+        bgDoorUnlocked.style.display = 'none'
+      } else {
+        bgDoorLocked.style.display = 'none';
+        bgDoorUnlocked.style.display = 'inline';
+      }
+    });
+    
+
+
+    /*Rooms, Lights, & Camera*/
     const lightBedroom = svgDocument.getElementById('light_bedroom');
     const buttonBedroom = svgDocument.getElementById('button_bedroom');
     const lightKitchen = svgDocument.getElementById('light_kitchen');
@@ -17,80 +38,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const hexLightButton = svgDocument.getElementById('hex_light_button');
     const lightLivingRoom = svgDocument.getElementById('light_livingroom')
     let hexLightButtonOpacity = 0.28;
-    const buttonDoorLock = svgDocument.getElementById('button_door_lock');
-    const bgDoorLocked = svgDocument.getElementById('bg_door_locked');
-    const bgDoorUnlocked = svgDocument.getElementById('bg_door_unlocked');
-    const roombaDocked = svgDocument.getElementById('roomba_docked');
-    const roombaRunning = svgDocument.getElementById('roomba_running');
-    const roombaReturning = svgDocument.getElementById('roomba_returning');
-    let roombaPositionY = parseInt(roombaRunning.getAttribute('y'));
-    let roombaDirection = 'down';
-  
-    // Set the initial positions and states of the elements
-    roombaDocked.style.display = 'inline';
-    roombaRunning.style.display = 'none';
-    roombaReturning.style.display = 'none';
-  
-    roombaRunning.addEventListener('click', () => {
-      // Hide the roomba_running element and show the roomba_returning element
-      roombaRunning.style.display = 'none';
-      roombaReturning.style.display = 'inline';
-  
-      // Set the position of the roomba_returning element to the same Y value as roomba_running
-      roombaReturning.setAttribute('y', roombaPositionY);
-      roombaDirection = 'up';
-    });
-  
-    roombaReturning.addEventListener('animationend', () => {
-      // Hide the roomba_returning element and show the roomba_docked element
-      roombaReturning.style.display = 'none';
-      roombaDocked.style.display = 'inline';
-    });
-  
-    setInterval(() => {
-      // Move the roomba_running or roomba_returning element
-      if (roombaRunning.style.display === 'inline') {
-        // Move the roomba_running element
-        if (roombaDirection === 'down') {
-          if (roombaPositionY < 300) {
-            roombaPositionY += 1;
-          } else {
-            roombaRunning.style.display = 'none';
-            roombaReturning.style.display = 'inline';
-            roombaDirection = 'up';
-            roombaReturning.setAttribute('y', roombaPositionY);
-          }
-        } else {
-          if (roombaPositionY > 0) {
-            roombaPositionY -= 1;
-          }
-        }
-  
-        roombaRunning.setAttribute('y', roombaPositionY);
-      } else if (roombaReturning.style.display === 'inline') {
-        // Move the roomba_returning element
-        if (roombaPositionY > 0) {
-          roombaPositionY -= 1;
-        } else {
-          roombaReturning.style.display = 'none';
-          roombaDocked.style.display = 'inline';
-        }
-  
-        roombaReturning.setAttribute('y', roombaPositionY);
-      }
-    }, 100);
-
-
-    buttonDoorLock.addEventListener('click', () => {
-      if (bgDoorLocked.style.display === 'none') {
-        bgDoorLocked.style.display = 'inline';
-        bgDoorUnlocked.style.display = 'none'
-      } else {
-        bgDoorLocked.style.display = 'none';
-        bgDoorUnlocked.style.display = 'inline';
-      }
-    });
-    
     
     hexButton.addEventListener('click', () => {
       if (hexMenu.style.display === 'none') {
@@ -185,7 +132,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
       });
     }
 
-        /*Turn all the lights on and off with buttons*/
         if (lightLivingRoom && hexLightButton) {
           hexLightButton.addEventListener('click', () => {
             const currentOpacity = lightLivingRoom.style.opacity;
