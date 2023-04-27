@@ -154,50 +154,49 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
 
 
-    // initially hide roombaRunning and roombaReturning
+    /*hide roombaRunning and roombaReturning on page load*/
     roombaRunning.style.display = 'none';
     roombaReturning.style.display = 'none';
-    
-    // define the function that rotates an element by a certain degree
-    const rotateElement = (element, degree) => {
-      element.style.transform = `rotate(${degree}deg)`;
+
+    /*rotate roombaRunning slowly*/
+    function rotateRoombaRunning() {
+      roombaRunning.style.transformOrigin = "center";
+      let currentRotation = 0;
+      setInterval(() => {
+        currentRotation += 1;
+        roombaRunning.style.transform = `rotate(${currentRotation}deg)`;
+      }, 20);
     }
-    
-    // define the function that spins an element
-    const spinElement = (element) => {
-      let degree = 0;
-      const spin = setInterval(() => {
-        rotateElement(element, degree);
-        degree += 1;
-      }, 50);
-      
-      return spin;
-    }
-    
-    // set up click event listener for roombaDocked
-    roombaDocked.addEventListener('click', () => {
-      // hide roombaDocked and show roombaRunning
-      roombaDocked.style.display = 'none';
-      roombaRunning.style.display = 'block';
-      
-      // spin roombaRunning
-      const spin = spinElement(roombaRunning);
-      
-      // set up click event listener for roombaRunning
-      roombaRunning.addEventListener('click', () => {
-        // stop spinning roombaRunning and hide it
-        clearInterval(spin);
-        roombaRunning.style.display = 'none';
-        
-        // show roombaReturning
-        roombaReturning.style.display = 'block';
-        
-        // set up timer to hide roombaReturning and show roombaDocked after 3 seconds
-        setTimeout(() => {
+
+    /*flash roombaReturning for 3 seconds*/
+    function flashRoombaReturning() {
+      const flashInterval = setInterval(() => {
+        if (roombaReturning.style.display === 'none') {
+          roombaReturning.style.display = 'inline';
+        } else {
           roombaReturning.style.display = 'none';
-          roombaDocked.style.display = 'block';
-        }, 3000);
-      });
+        }
+      }, 500);
+
+      setTimeout(() => {
+        clearInterval(flashInterval);
+        roombaReturning.style.display = 'none';
+        roombaDocked.style.display = 'inline';
+      }, 3000);
+    }
+
+    /*when roombaDocked is clicked, hide roombaDocked and show roombaRunning*/
+    roombaDocked.addEventListener('click', () => {
+      roombaDocked.style.display = 'none';
+      roombaRunning.style.display = 'inline';
+      rotateRoombaRunning();
+    });
+
+    /*when roombaRunning is clicked, hide roombaRunning and show roombaReturning*/
+    roombaRunning.addEventListener('click', () => {
+      roombaRunning.style.display = 'none';
+      clearInterval(rotateInterval);
+      flashRoombaReturning();
     });
 
     
