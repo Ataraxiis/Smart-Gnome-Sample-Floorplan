@@ -20,17 +20,49 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonDoorLock = svgDocument.getElementById('button_door_lock');
     const bgDoorLocked = svgDocument.getElementById('bg_door_locked');
     const bgDoorUnlocked = svgDocument.getElementById('bg_door_unlocked');
-  
+    const roombaDocked = svgDocument.getElementById('roomba_docked');
+    const roombaRunning = svgDocument.getElementById('roomba_running');
+    let roombaPositionX = 0;
+    let roombaPositionY = 0;
+
+  // Hide the roomba_docked element and show the roomba_running element
+  roombaDocked.style.display = 'none';
+  roombaRunning.style.display = 'inline';
+
+  // Set the initial position of the roomba_running element
+  roombaRunning.setAttribute('x', roombaPositionX);
+  roombaRunning.setAttribute('y', roombaPositionY);
+
+  roombaRunning.addEventListener('click', () => {
+    // Hide the roomba_running element and show the roomba_docked element
+    roombaRunning.style.display = 'none';
+    roombaDocked.style.display = 'inline';
+
+    // Reset the position of the roomba_running element
+    roombaPositionX = 0;
+    roombaPositionY = 0;
+    roombaRunning.setAttribute('x', roombaPositionX);
+    roombaRunning.setAttribute('y', roombaPositionY);
+  });
+
+  setInterval(() => {
+    // Move the roomba_running element
+    roombaPositionX += 1;
+    roombaPositionY += 1;
+    roombaRunning.setAttribute('x', roombaPositionX);
+    roombaRunning.setAttribute('y', roombaPositionY);
+  }, 100);
+
+
     buttonDoorLock.addEventListener('click', () => {
-      if (bgDoorLocked.style.opacity === '1') {
-        bgDoorLocked.style.opacity = '0';
-        bgDoorUnlocked.style.opacity = '1';
+      if (bgDoorLocked.style.display === 'none') {
+        bgDoorLocked.style.display = 'inline';
+        bgDoorUnlocked.style.display = 'none'
       } else {
-        bgDoorLocked.style.opacity = '1';
-        bgDoorUnlocked.style.opacity = '0';
+        bgDoorLocked.style.display = 'none';
+        bgDoorUnlocked.style.display = 'inline';
       }
     });
-  
     
     
     hexButton.addEventListener('click', () => {
@@ -65,18 +97,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
       });
     }
 
-    /*Turn all the lights on and off with buttons*/
-    if (lightBedroom && buttonBedroom) {
-      buttonBedroom.addEventListener('click', () => {
-        const currentOpacity = lightBedroom.style.opacity;
-  
-        if (currentOpacity === '0') {
-          lightBedroom.style.opacity = '1';
-        } else {
-          lightBedroom.style.opacity = '0';
-        }
-      });
-    }
 
     if (lightKitchen && buttonKitchenLight) {
       buttonKitchenLight.addEventListener('click', () => {
