@@ -151,44 +151,55 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const roombaRunning = svgDocument.getElementById("roomba_running");
     const roombaReturning = svgDocument.getElementById("roomba_returning");
 
-    // Hide Roomba running and returning on page load
-    roombaRunning.style.display = "none";
-    roombaReturning.style.display = "none";
 
-    // Add click event listener to Roomba docked
-    roombaDocked.addEventListener("click", function() {
-      // Hide Roomba docked and show Roomba running
-      roombaDocked.style.display = "none";
-      roombaRunning.style.display = "inline";
 
-      // Start spinning Roomba running
-      roombaRunning.style.animation = "spin 2s linear infinite";
 
-      // Add click event listener to Roomba running
-      roombaRunning.addEventListener("click", function() {
-        // Stop spinning Roomba running
-        roombaRunning.style.animation = "none";
+    function spin(elem) {
+      let rotation = 0;
+      const intervalId = setInterval(() => {
+        rotation += 5;
+        elem.setAttribute('transform', `rotate(${rotation} 100 100)`);
+      }, 50);
+      return intervalId;
+    }
+    
 
-        // Hide Roomba running and show Roomba returning
-        roombaRunning.style.display = "none";
-        roombaReturning.style.display = "inline";
-
-        // Flash Roomba returning for 3 seconds
-        let flashCount = 0;
-        const flashInterval = setInterval(function() {
-          if (flashCount % 2 == 0) {
-            roombaReturning.style.display = "inline";
-          } else {
-            roombaReturning.style.display = "none";
-          }
-          flashCount++;
-          if (flashCount > 5) {
-            clearInterval(flashInterval);
-            // Hide Roomba returning and show Roomba docked
-            roombaReturning.style.display = "none";
-            roombaDocked.style.display = "inline";
-          }
-        }, 500);
+    function showElement(elem) {
+      elem.style.display = 'inline';
+    }
+  
+    function hideElement(elem) {
+      elem.style.display = 'none';
+    }
+  
+    function spin(elem) {
+      let rotation = 0;
+      const intervalId = setInterval(() => {
+        rotation += 5;
+        elem.setAttribute('transform', `rotate(${rotation} 100 100)`);
+      }, 50);
+      return intervalId;
+    }
+  
+    function stopSpin(intervalId) {
+      clearInterval(intervalId);
+    }
+  
+    hideElement(roombaReturning);
+    hideElement(roombaRunning);
+  
+    roombaDocked.addEventListener('click', () => {
+      hideElement(roombaDocked);
+      showElement(roombaRunning);
+      const intervalId = spin(roombaRunning);
+      roombaRunning.addEventListener('click', () => {
+        stopSpin(intervalId);
+        hideElement(roombaRunning);
+        showElement(roombaReturning);
+        setTimeout(() => {
+          hideElement(roombaReturning);
+          showElement(roombaDocked);
+        }, 3000);
       });
     });
 
