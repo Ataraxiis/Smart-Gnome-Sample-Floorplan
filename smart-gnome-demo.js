@@ -22,36 +22,63 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const bgDoorUnlocked = svgDocument.getElementById('bg_door_unlocked');
     const roombaDocked = svgDocument.getElementById('roomba_docked');
     const roombaRunning = svgDocument.getElementById('roomba_running');
-    let roombaPositionX = 0;
-    let roombaPositionY = 0;
-
-  // Hide the roomba_docked element and show the roomba_running element
-  roombaDocked.style.display = 'none';
-  roombaRunning.style.display = 'inline';
-
-  // Set the initial position of the roomba_running element
-  roombaRunning.setAttribute('x', roombaPositionX);
-  roombaRunning.setAttribute('y', roombaPositionY);
-
-  roombaRunning.addEventListener('click', () => {
-    // Hide the roomba_running element and show the roomba_docked element
-    roombaRunning.style.display = 'none';
+    const roombaReturning = svgDocument.getElementById('roomba_returning');
+    let roombaPositionY = parseInt(roombaRunning.getAttribute('y'));
+    let roombaDirection = 'down';
+  
+    // Set the initial positions and states of the elements
     roombaDocked.style.display = 'inline';
-
-    // Reset the position of the roomba_running element
-    roombaPositionX = 0;
-    roombaPositionY = 0;
-    roombaRunning.setAttribute('x', roombaPositionX);
-    roombaRunning.setAttribute('y', roombaPositionY);
-  });
-
-  setInterval(() => {
-    // Move the roomba_running element
-    roombaPositionX += 1;
-    roombaPositionY += 1;
-    roombaRunning.setAttribute('x', roombaPositionX);
-    roombaRunning.setAttribute('y', roombaPositionY);
-  }, 100);
+    roombaRunning.style.display = 'none';
+    roombaReturning.style.display = 'none';
+  
+    roombaRunning.addEventListener('click', () => {
+      // Hide the roomba_running element and show the roomba_returning element
+      roombaRunning.style.display = 'none';
+      roombaReturning.style.display = 'inline';
+  
+      // Set the position of the roomba_returning element to the same Y value as roomba_running
+      roombaReturning.setAttribute('y', roombaPositionY);
+      roombaDirection = 'up';
+    });
+  
+    roombaReturning.addEventListener('animationend', () => {
+      // Hide the roomba_returning element and show the roomba_docked element
+      roombaReturning.style.display = 'none';
+      roombaDocked.style.display = 'inline';
+    });
+  
+    setInterval(() => {
+      // Move the roomba_running or roomba_returning element
+      if (roombaRunning.style.display === 'inline') {
+        // Move the roomba_running element
+        if (roombaDirection === 'down') {
+          if (roombaPositionY < 300) {
+            roombaPositionY += 1;
+          } else {
+            roombaRunning.style.display = 'none';
+            roombaReturning.style.display = 'inline';
+            roombaDirection = 'up';
+            roombaReturning.setAttribute('y', roombaPositionY);
+          }
+        } else {
+          if (roombaPositionY > 0) {
+            roombaPositionY -= 1;
+          }
+        }
+  
+        roombaRunning.setAttribute('y', roombaPositionY);
+      } else if (roombaReturning.style.display === 'inline') {
+        // Move the roomba_returning element
+        if (roombaPositionY > 0) {
+          roombaPositionY -= 1;
+        } else {
+          roombaReturning.style.display = 'none';
+          roombaDocked.style.display = 'inline';
+        }
+  
+        roombaReturning.setAttribute('y', roombaPositionY);
+      }
+    }, 100);
 
 
     buttonDoorLock.addEventListener('click', () => {
