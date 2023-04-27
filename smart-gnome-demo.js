@@ -3,7 +3,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const lightBedroom = svgDocument.getElementById('light_bedroom');
     const buttonBedroom = svgDocument.getElementById('button_bedroom');
     const lightKitchen = svgDocument.getElementById('light_kitchen');
-    const buttonKitchenLight = svgDocument.getElementById('button_kithen_light');
+    const buttonKitchenLight = svgDocument.getElementById('button_kitchen_light');
     const lightGarden = svgDocument.getElementById('light_garden');
     const buttonGardenLight = svgDocument.getElementById('button_garden_light');
     const lightCloset = svgDocument.getElementById('light_closet');
