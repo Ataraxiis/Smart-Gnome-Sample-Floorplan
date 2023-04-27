@@ -12,11 +12,17 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonSpareRoom = svgDocument.getElementById('button_spareroom');
     const cameraImage = svgDocument.getElementById('image19542');
     const buttonCamera = svgDocument.getElementById('button_kitchen_camera');
-    const buttonLocked = svgDocument.getElementById('button_locked');
-    const buttonUnlocked = svgDocument.getElementById('button_unlocked');
+    const doorLocked = svgDocument.getElementById('bg_door_locked');
+    const doorUnlocked = svgDocument.getElementById('bg_door_unlocked');
+    const doorButton = svgDocument.getElementById('button_door_lock');
     const hexButton = svgDocument.getElementById('button_living_room');
     const hexMenu = svgDocument.getElementById('layer6');
+    const hexLightButton = svgDocument.getElementById('hex_light_button');
+    const lightLivingRoom = svgDocument.getElementById('light_livingroom')
+    let hexLightButtonOpacity = 0.28;
   
+    
+    
     hexButton.addEventListener('click', () => {
       if (hexMenu.style.display === 'none') {
         hexMenu.style.display = 'inline';
@@ -25,7 +31,29 @@ document.getElementById('svg-object').addEventListener('load', function() {
       }
     });
 
+    hexLightButton.addEventListener('click', () => {
+      if (hexLightButtonOpacity === 1) {
+        hexLightButton.style.opacity = 0.28;
+        hexLightButtonOpacity = 0.28;
+      } else {
+        hexLightButton.style.opacity = 1;
+        hexLightButtonOpacity = 1;
+      }
+    });
   
+
+    /*Turn all the lights on and off with buttons*/
+    if (lightBedroom && buttonBedroom) {
+      buttonBedroom.addEventListener('click', () => {
+        const currentOpacity = lightBedroom.style.opacity;
+  
+        if (currentOpacity === '0') {
+          lightBedroom.style.opacity = '1';
+        } else {
+          lightBedroom.style.opacity = '0';
+        }
+      });
+    }
 
     /*Turn all the lights on and off with buttons*/
     if (lightBedroom && buttonBedroom) {
@@ -90,26 +118,31 @@ document.getElementById('svg-object').addEventListener('load', function() {
     
     if (cameraImage && buttonCamera) {
       buttonCamera.addEventListener('click', () => {
-        const currentOpacity = buttonCamera.style.opacity;
+        const currentOpacity = cameraImage.style.opacity;
   
         if (currentOpacity === '0') {
-          buttonCamera.style.opacity = '1';
+          cameraImage.style.opacity = '1';
         } else {
-          buttonCamera.style.opacity = '0';
+          cameraImage.style.opacity = '0';
         }
       });
     }
 
+        /*Turn all the lights on and off with buttons*/
+        if (lightLivingRoom && hexLightButton) {
+          hexLightButton.addEventListener('click', () => {
+            const currentOpacity = lightLivingRoom.style.opacity;
+      
+            if (currentOpacity === '0') {
+              lightLivingRoom.style.opacity = '1';
+            } else {
+              lightLivingRoom.style.opacity = '0';
+            }
+          });
+        }
+
     
-    buttonLocked.addEventListener('click', () => {
-      buttonLocked.hidden = true;
-      buttonUnlocked.hidden = false;
-    });
-  
-    buttonUnlocked.addEventListener('click', () => {
-      buttonUnlocked.hidden = true;
-      buttonLocked.hidden = false;
-    });
+
 
   });
   
