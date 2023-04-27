@@ -147,20 +147,49 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
 
     /*Roomba Options*/
-    const roombaDocked = svgDocument.getElementById('roomba_docked'); // get the "roomba_docked" element
-    let isMoving = false; // flag to keep track of the element's movement state
-    let initialPositionY; // variable to store the initial Y position of the element
+    const roombaDocked = svgDocument.getElementById("roomba_docked");
+    const roombaRunning = svgDocument.getElementById("roomba_running");
+    const roombaReturning = svgDocument.getElementById("roomba_returning");
 
-    // add a click event listener to the "roomba_docked" element
-    roombaDocked.addEventListener('click', () => {
-      if (isMoving) { // if the element is already moving
-        roombaDocked.style.transform = `translateY(${initialPositionY}px)`; // reset the element to its initial position
-        isMoving = false; // set the moving flag to false
-      } else { // if the element is not moving
-        initialPositionY = roombaDocked.getBoundingClientRect().top; // store the initial Y position of the element
-        roombaDocked.style.transform = `translateY(${initialPositionY - 50}px)`; // move the element up by 50 pixels
-        isMoving = true; // set the moving flag to true
-      }
+    // Hide Roomba running and returning on page load
+    roombaRunning.style.display = "none";
+    roombaReturning.style.display = "none";
+
+    // Add click event listener to Roomba docked
+    roombaDocked.addEventListener("click", function() {
+      // Hide Roomba docked and show Roomba running
+      roombaDocked.style.display = "none";
+      roombaRunning.style.display = "inline";
+
+      // Start spinning Roomba running
+      roombaRunning.style.animation = "spin 2s linear infinite";
+
+      // Add click event listener to Roomba running
+      roombaRunning.addEventListener("click", function() {
+        // Stop spinning Roomba running
+        roombaRunning.style.animation = "none";
+
+        // Hide Roomba running and show Roomba returning
+        roombaRunning.style.display = "none";
+        roombaReturning.style.display = "inline";
+
+        // Flash Roomba returning for 3 seconds
+        let flashCount = 0;
+        const flashInterval = setInterval(function() {
+          if (flashCount % 2 == 0) {
+            roombaReturning.style.display = "inline";
+          } else {
+            roombaReturning.style.display = "none";
+          }
+          flashCount++;
+          if (flashCount > 5) {
+            clearInterval(flashInterval);
+            // Hide Roomba returning and show Roomba docked
+            roombaReturning.style.display = "none";
+            roombaDocked.style.display = "inline";
+          }
+        }, 500);
+      });
     });
 
     
