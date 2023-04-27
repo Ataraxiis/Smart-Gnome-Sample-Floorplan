@@ -92,13 +92,13 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
     
     buttonLocked.addEventListener('click', () => {
-      buttonLocked.style.display = 'none';
-      buttonUnlocked.style.display = 'inline';
+      buttonLocked.hidden = true;
+      buttonUnlocked.hidden = false;
     });
-
+  
     buttonUnlocked.addEventListener('click', () => {
-      buttonUnlocked.style.display = 'none';
-      buttonLocked.style.display = 'inline';
+      buttonUnlocked.hidden = true;
+      buttonLocked.hidden = false;
     });
 
   });
