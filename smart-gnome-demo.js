@@ -14,6 +14,16 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const buttonCamera = svgDocument.getElementById('bg_camera_image');
     const buttonLocked = svgDocument.getElementById('button_locked');
     const buttonUnlocked = svgDocument.getElementById('button_unlocked');
+    const hexButton = svgDocument.getElementById('button_living_room');
+    const hexMenu = svgDocument.getElementById('layer6');
+  
+    hexButton.addEventListener('click', () => {
+      if (hexMenu.style.display === 'none') {
+        hexMenu.style.display = 'inline';
+      } else {
+        hexMenu.style.display = 'none';
+      }
+    });
 
   
 
