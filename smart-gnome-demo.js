@@ -146,60 +146,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
         }
 
 
-     /*Roomba Options*/
-      const roombaDocked = svgDocument.getElementById("roomba_docked");
-      const roombaRunning = svgDocument.getElementById("roomba_running");
-      const roombaReturning = svgDocument.getElementById("roomba_returning");
-
-      /*hide roombaRunning and roombaReturning on page load*/
-      roombaRunning.style.display = 'none';
-      roombaReturning.style.display = 'none';
-
-      /*rotate roombaRunning slowly*/
-      function rotateRoombaRunning() {
-        const bbox = roombaRunning.getBBox();
-        const centerX = bbox.x + bbox.width / 2;
-        const centerY = bbox.y + bbox.height / 2;
-        
-        let currentRotation = 0;
-        setInterval(() => {
-          currentRotation += 1;
-          roombaRunning.setAttribute('transform', `rotate(${currentRotation}, ${centerX}, ${centerY})`);
-        }, 20);
-      }
-
-      /*flash roombaReturning for 3 seconds*/
-      function flashRoombaReturning() {
-        const flashInterval = setInterval(() => {
-          if (roombaReturning.style.display === 'none') {
-            roombaReturning.style.display = 'inline';
-          } else {
-            roombaReturning.style.display = 'none';
-          }
-        }, 500);
-
-        setTimeout(() => {
-          clearInterval(flashInterval);
-          roombaReturning.style.display = 'none';
-          roombaDocked.style.display = 'inline';
-        }, 3000);
-      }
-
-      /*when roombaDocked is clicked, hide roombaDocked and show roombaRunning*/
-      roombaDocked.addEventListener('click', () => {
-        roombaDocked.style.display = 'none';
-        roombaRunning.style.display = 'inline';
-        rotateRoombaRunning();
-      });
-
-      /*when roombaRunning is clicked, hide roombaRunning and show roombaReturning*/
-      roombaRunning.addEventListener('click', () => {
-        roombaRunning.style.display = 'none';
-        clearInterval(rotateInterval);
-        flashRoombaReturning();
-      });
-
-
 
 
     
