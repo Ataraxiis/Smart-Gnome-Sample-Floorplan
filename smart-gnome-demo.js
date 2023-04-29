@@ -304,14 +304,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
           lightLivingRoom.style.opacity = '1';
               itemLivingRoomOn.style.display = 'none';
               itemLivingRoomOff.style.display = 'inline';
-              hexLightButton.style.opacity = 0.28;
-              hexLightButtonOpacity = 0.28;
+              hexLightButton.style.opacity = 1;
+              hexLightButtonOpacity = 1;
         } else {
           lightLivingRoom.style.opacity = '0';
               itemLivingRoomOn.style.display = 'inline';
               itemLivingRoomOff.style.display = 'none';
-              hexLightButton.style.opacity = 1;
-              hexLightButtonOpacity = 1;
+              hexLightButton.style.opacity = 0.28;
+              hexLightButtonOpacity = 0.28;
         }
       });
 
