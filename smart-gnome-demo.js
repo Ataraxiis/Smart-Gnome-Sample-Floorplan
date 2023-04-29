@@ -165,7 +165,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
         if (currentOpacity === '0') {
           lightGarden.style.opacity = '1';
           itemGardenOn.style.display = 'none';
-          itemGardenOff.sytle.display = 'inline';
+          itemGardenOff.style.display = 'inline';
         } else {
           lightGarden.style.opacity = '0';
           itemGardenOn.style.display = 'inline';
