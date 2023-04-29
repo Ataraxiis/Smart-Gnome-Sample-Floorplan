@@ -181,7 +181,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
         if (currentOpacity === '0') {
           lightSpareRoom.style.opacity = '1';
           itemSpareroomOn.style.display = 'none';
-          itemBedRoomOff.style.display = 'inline';
+          itemSpareroomOff.style.display = 'inline';
         } else {
           lightSpareRoom.style.opacity = '0';
           itemSpareroomOn.style.display = 'inline';
@@ -288,7 +288,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
         if (currentOpacity === '0') {
           lightSpareRoom.style.opacity = '1';
           itemSpareroomOn.style.display = 'none';
-          itemBedRoomOff.style.display = 'inline';
+          itemSpareroomOff.style.display = 'inline';
         } else {
           lightSpareRoom.style.opacity = '0';
           itemSpareroomOn.style.display = 'inline';
