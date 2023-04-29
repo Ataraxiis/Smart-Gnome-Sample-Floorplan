@@ -146,7 +146,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
         }
 
 
-          /*Roomba Options*/
+      /*Roomba Options*/
       const roombaDocked = svgDocument.getElementById("roomba_docked");
       const roombaRunning = svgDocument.getElementById("roomba_running");
       const roombaReturning = svgDocument.getElementById("roomba_returning");
@@ -157,7 +157,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
       /*rotate roombaRunning slowly*/
       function rotateRoombaRunning() {
-        roombaRunning.style.transformOrigin = "50% 50%";
+        roombaRunning.setAttribute("transform-origin", "50% 50%");
         let currentRotation = 0;
         setInterval(() => {
           currentRotation += 1;
@@ -195,6 +195,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
         clearInterval(rotateInterval);
         flashRoombaReturning();
       });
+
 
 
     
