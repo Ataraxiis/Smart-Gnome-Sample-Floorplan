@@ -228,12 +228,12 @@ document.getElementById('svg-object').addEventListener('load', function() {
   
         if (currentOpacity === '0') {
           lightBedroom.style.opacity = '1';
-          itemBedRoomOn.style.display = 'inline';
-          itemBedRoomOff.style.display = 'none';
-        } else {
-          lightBedroom.style.opacity = '0';
           itemBedRoomOn.style.display = 'none';
           itemBedRoomOff.style.display = 'inline';
+        } else {
+          lightBedroom.style.opacity = '0';
+          itemBedRoomOn.style.display = 'inline';
+          itemBedRoomOff.style.display = 'none';
         }
       });
     
