@@ -278,7 +278,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
         } else {
           lightGarden.style.opacity = '0';
           itemGardenOn.style.display = 'inline';
-          itemGardenOff.sytle.display = 'none';
+          itemGardenOff.style.display = 'none';
         }
       });
 
