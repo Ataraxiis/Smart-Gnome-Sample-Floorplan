@@ -106,16 +106,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
         hexMenu.style.display = 'none';
       }
     });
-
-    hexLightButton.addEventListener('click', () => {
-      if (hexLightButtonOpacity === 1) {
-        hexLightButton.style.opacity = 0.28;
-        hexLightButtonOpacity = 0.28;
-      } else {
-        hexLightButton.style.opacity = 1;
-        hexLightButtonOpacity = 1;
-      }
-    });
   
 
     /*Turn all the lights on and off with buttons*/
@@ -220,10 +210,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
               lightLivingRoom.style.opacity = '1';
               itemLivingRoomOn.style.display = 'none';
               itemLivingRoomOff.style.display = 'inline';
+              hexLightButton.style.opacity = 0.28;
+              hexLightButtonOpacity = 0.28;
             } else {
               lightLivingRoom.style.opacity = '0';
               itemLivingRoomOn.style.display = 'inline';
               itemLivingRoomOff.style.display = 'none';
+              hexLightButton.style.opacity = 1;
+              hexLightButtonOpacity = 1;
             }
           });
         }
@@ -308,12 +302,16 @@ document.getElementById('svg-object').addEventListener('load', function() {
   
         if (currentOpacity === '0') {
           lightLivingRoom.style.opacity = '1';
-          itemLivingRoomOn.style.display = 'none';
-          itemLivingRoomOff.style.display = 'inline';
+              itemLivingRoomOn.style.display = 'none';
+              itemLivingRoomOff.style.display = 'inline';
+              hexLightButton.style.opacity = 0.28;
+              hexLightButtonOpacity = 0.28;
         } else {
           lightLivingRoom.style.opacity = '0';
-          itemLivingRoomOn.style.display = 'inline';
-          itemLivingRoomOff.style.display = 'none';
+              itemLivingRoomOn.style.display = 'inline';
+              itemLivingRoomOff.style.display = 'none';
+              hexLightButton.style.opacity = 1;
+              hexLightButtonOpacity = 1;
         }
       });
 
