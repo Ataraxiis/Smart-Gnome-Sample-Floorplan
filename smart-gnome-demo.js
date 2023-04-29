@@ -98,6 +98,22 @@ document.getElementById('svg-object').addEventListener('load', function() {
       }
     });
 
+    /*interactions*/
+    
+    itemLock.addEventListener('click', () => {
+      if (bgDoorLocked.style.display === 'none') {
+        bgDoorLocked.style.display = 'inline';
+        itemLocked.style.display = 'inline';
+        bgDoorUnlocked.style.display = 'none';
+        itemUnlocked.style.display = 'none';
+      } else {
+        bgDoorLocked.style.display = 'none';
+        itemLocked.style.display = 'none';
+        bgDoorUnlocked.style.display = 'inline';
+        itemUnlocked.style.display = 'inline';
+      }
+    });
+
 
     hexButton.addEventListener('click', () => {
       if (hexMenu.style.display === 'none') {
@@ -304,14 +320,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
           lightLivingRoom.style.opacity = '1';
               itemLivingRoomOn.style.display = 'none';
               itemLivingRoomOff.style.display = 'inline';
-              hexLightButton.style.opacity = 1;
-              hexLightButtonOpacity = 1;
+              hexLightButton.style.opacity = .28;
+              hexLightButtonOpacity = .28;
         } else {
           lightLivingRoom.style.opacity = '0';
               itemLivingRoomOn.style.display = 'inline';
               itemLivingRoomOff.style.display = 'none';
-              hexLightButton.style.opacity = 0.28;
-              hexLightButtonOpacity = 0.28;
+              hexLightButton.style.opacity = 1;
+              hexLightButtonOpacity = 1;
         }
       });
 
