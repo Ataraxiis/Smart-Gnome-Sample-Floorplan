@@ -47,6 +47,28 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const itemBedRoomOn = svgDocument.getElementById('item_bedroom_on');
     const itemLivingRoomOff = svgDocument.getElementById('item_living_room_off');
     const itemLivingRoomOn = svgDocument.getElementById('item_living_room_on');
+    const floorPlan2ViewButton = svgDocument.getElementById('button_floor2_plan_view');
+    const floorPlan2View = svgDocument.getElementById('floor_2');
+    const floor2Bedroom = svgDocument.getElementById('button_floor2_bedroom');
+    const light_floor2Bedroom = svgDocument.getElementById('floor_2_bed_light');
+    const floor2Main = svgDocument.getElementById('button_floor2_main');
+    const light_floor2Main = svgDocument.getElementById('floor_2_bed_light');
+    const floor2Computer = svgDocument.getElementById('button_floor2_computer');
+    const light_floor2Computer = svgDocument.getElementById('floor_2_computer_light');
+    const item_computer = svgDocument.getElementById('item_computer');
+    const item_floor2_bed = svgDocument.getElementById('item_floor2_bed');
+    const item_floor2_main = svgDocument.getElementById('item_floor2_main');
+    const routine_lightson = svgDocument.getElementById('item_routine_lightson');
+    const routine_lightsoff = svgDocument.getElementById('item_routine_lightsoff');
+    const routine_movie = svgDocument.getElementById('item_routine_movie');
+    const routine_bed = svgDocument.getElementById('item_routine_bed');
+    const itemFloor2BedOn = svgDocument.getElementById('item_floor2_bed_on');
+    const itemFloor2BedOff = svgDocument.getElementById('item_floor2_bed_off');
+    const itemFloor2MainOn = svgDocument.getElementById('item_floor2_main_on');
+    const itmeFloor2MainOff = svgDocument.getElementById('item_floor2_main_off');
+    const itemFloor2ComputerOn = svgDocument.getElementById('item_computer_on');
+    const itemFloor2ComputerOff = svgDocument.getElementById('item_computer_off');
+
 
     /*set starting states*/
     let hexLightButtonOpacity = 0.28;
@@ -54,7 +76,9 @@ document.getElementById('svg-object').addEventListener('load', function() {
     itemUnlocked.style.display = 'none';
     bgDoorUnlocked.style.opacity = 1;
     itemizedView.style.display = 'none';
+    floorPlan2View.style.display = 'none';
     floorPlanViewButton.style.opacity = 1;
+    floorPlan2ViewButton.style.opacity = .24;
     itemizedViewButton.style.opacity = .24;
     itemClosetOff.style.display = 'inline';
     itemClosetOn.style.display = 'none';
@@ -72,16 +96,27 @@ document.getElementById('svg-object').addEventListener('load', function() {
     /*swap views*/
     itemizedViewButton.addEventListener('click', () => {
       itemizedView.style.display = 'inline';
+      floorPlan2View.style.display = 'none';
       itemizedViewButton.style.opacity = 1;
       floorPlanViewButton.style.opacity = .24;
+      floorPlan2ViewButton.style.opacity = .24;
     });
 
     floorPlanViewButton.addEventListener('click', () => {
       itemizedView.style.display = 'none';
+      floorPlan2View.style.display = 'none';
       floorPlanViewButton.style.opacity = 1;
       itemizedViewButton.style.opacity = .24;
+      floorPlan2ViewButton.style.opacity = .24;
     });
 
+    floorPlan2ViewButton.addEventListener('click', () => {
+      itemizedView.style.display = 'none';
+      floorPlan2View.style.display = 'inline';
+      floorPlanViewButton.style.opacity = .24;
+      itemizedViewButton.style.opacity = .24;
+      floorPlan2ViewButton.style.opacity = 1;
+    });
     /*interactions*/
     
     buttonDoorLock.addEventListener('click', () => {
@@ -239,6 +274,99 @@ document.getElementById('svg-object').addEventListener('load', function() {
         }
 
 
+        if (floor2Bedroom && light_floor2Bedroom) {
+          floor2Bedroom.addEventListener('click', () => {
+            const currentOpacity = light_floor2Bedroom.style.opacity;
+      
+            if (currentOpacity === '0') {
+              light_floor2Bedroom.style.opacity = '1';
+              itemFloor2BedOn.style.display = 'none';
+              itemFloor2BedOff.style.display = 'inline';
+            } else {
+              light_floor2Bedroom.style.opacity = '0';
+              itemFloor2BedOn.style.display = 'inline';
+              itemFloor2BedOff.style.display = 'none';
+            }
+          });
+        }
+
+        item_floor2_bed.addEventListener('click', () => {
+          const currentOpacity = light_floor2Bedroom.style.opacity;
+    
+          if (currentOpacity === '0') {
+            light_floor2Bedroom.style.opacity = '1';
+            itemFloor2BedOn.style.display = 'none';
+            itemFloor2BedOff.style.display = 'inline';
+          } else {
+            light_floor2Bedroom.style.opacity = '0';
+            itemFloor2BedOn.style.display = 'inline';
+            itemFloor2BedOff.style.display = 'none';
+          }
+        });
+
+
+        if (floor2Main && light_floor2Main) {
+          floor2Bedroom.addEventListener('click', () => {
+            const currentOpacity = light_floor2Main.style.opacity;
+      
+            if (currentOpacity === '0') {
+              light_floor2Main.style.opacity = '1';
+              itemFloor2MainOn.style.display = 'none';
+              itmeFloor2MainOff.style.display = 'inline';
+            } else {
+              light_floor2Main.style.opacity = '0';
+              itemFloor2MainOn.style.display = 'inline';
+              itmeFloor2MainOff.style.display = 'none';
+            }
+          });
+        }
+
+        item_floor2_main.addEventListener('click', () => {
+          const currentOpacity = light_floor2Main.style.opacity;
+    
+          if (currentOpacity === '0') {
+            light_floor2Main.style.opacity = '1';
+            itemFloor2MainOn.style.display = 'none';
+            itmeFloor2MainOff.style.display = 'inline';
+          } else {
+            light_floor2Main.style.opacity = '0';
+            itemFloor2MainOn.style.display = 'inline';
+            itmeFloor2MainOff.style.display = 'none';
+          }
+        });
+
+
+        if (floor2Computer && light_floor2Computer) {
+          floor2Computer.addEventListener('click', () => {
+            const currentOpacity = light_floor2Computer.style.opacity;
+      
+            if (currentOpacity === '0') {
+              light_floor2Computer.style.opacity = '1';
+              itemFloor2ComputerOn.style.display = 'none';
+              itemFloor2ComputerOff.style.display = 'inline';
+            } else {
+              light_floor2Computer.style.opacity = '0';
+              itemFloor2ComputerOn.style.display = 'inline';
+              itemFloor2ComputerOff.style.display = 'none';
+            }
+          });
+        }
+
+        item_computer.addEventListener('click', () => {
+          const currentOpacity = light_floor2Computer.style.opacity;
+    
+          if (currentOpacity === '0') {
+            light_floor2Computer.style.opacity = '1';
+            itemFloor2ComputerOn.style.display = 'none';
+            itemFloor2ComputerOff.style.display = 'inline';
+          } else {
+            light_floor2Computer.style.opacity = '0';
+            itemFloor2ComputerOn.style.display = 'inline';
+            itemFloor2ComputerOff.style.display = 'none';
+          }
+        });
+
+
     item_bedroom.addEventListener('click', () => {
         const currentOpacity = lightBedroom.style.opacity;
   
@@ -252,6 +380,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
           itemBedRoomOff.style.display = 'none';
         }
       });
+
+      
     
     item_kitchen.addEventListener('click', () => {
         const currentOpacity = lightKitchen.style.opacity;
