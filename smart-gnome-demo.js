@@ -64,8 +64,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const itmeFloor2MainOff = svgDocument.getElementById('item_floor2_main_off');
   const itemFloor2ComputerOn = svgDocument.getElementById('item_computer_on');
   const itemFloor2ComputerOff = svgDocument.getElementById('item_computer_off');
-  const itemizedbutton = svgDocument.getElementById('ItemizedButton');
-  const FloorPlan2Button = svgDocument.getElementById('FloorPlan2Button');
+  const itemizedbutton = svgDocument.getElementById('itemizedButton');
+  const FloorPlan2Button = svgDocument.getElementById('Floorplan2Button');
   const FloorPlanButton = svgDocument.getElementById('FloorPlanButton');
 
 
