@@ -68,6 +68,9 @@ document.getElementById('svg-object').addEventListener('load', function() {
     const itmeFloor2MainOff = svgDocument.getElementById('item_floor2_main_off');
     const itemFloor2ComputerOn = svgDocument.getElementById('item_computer_on');
     const itemFloor2ComputerOff = svgDocument.getElementById('item_computer_off');
+    const FloorPlanButton = svgDocument.getElementById('FloorPlanButton');
+    const FloorPlan2Button = svgDocument.getElementById('FloorPlan2Button');
+    const ItemizedButton = svgDocument.getElementById('ItemizedButton');
 
 
     /*set starting states*/
@@ -94,7 +97,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
     itemBedRoomOn.style.display = 'none';
 
     /*swap views*/
-    itemizedViewButton.addEventListener('click', () => {
+    ItemizedButton.addEventListener('click', () => {
       itemizedView.style.display = 'inline';
       floorPlan2View.style.display = 'none';
       itemizedViewButton.style.opacity = 1;
@@ -102,7 +105,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
       floorPlan2ViewButton.style.opacity = .24;
     });
 
-    floorPlanViewButton.addEventListener('click', () => {
+    FloorPlanButton.addEventListener('click', () => {
       itemizedView.style.display = 'none';
       floorPlan2View.style.display = 'none';
       floorPlanViewButton.style.opacity = 1;
@@ -110,7 +113,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
       floorPlan2ViewButton.style.opacity = .24;
     });
 
-    floorPlan2ViewButton.addEventListener('click', () => {
+    FloorPlan2Button.addEventListener('click', () => {
       itemizedView.style.display = 'none';
       floorPlan2View.style.display = 'inline';
       floorPlanViewButton.style.opacity = .24;
