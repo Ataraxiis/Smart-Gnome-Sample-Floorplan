@@ -507,6 +507,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
       light_floor2Main.style.opacity = '0';
       itemFloor2MainOn.style.display = 'inline';
       itmeFloor2MainOff.style.display = 'none';
+      hexLightButton.style.opacity = 1;
+      hexLightButtonOpacity = 1;
+      lightTheater.style.opacity = '0';
+      itemFloor2TheaterOn.style.display = 'inline';
+      itemFloor2TheaterOff.style.display = 'none';
+      hex2Button.style.opacity = 1;
+      hex2LightButtonOpacity = 1;
+
 
     });
 
