@@ -70,7 +70,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const button_theaterLight = svgDocument.getElementById('hex_theater_light');
   const button_theaterMovie = svgDocument.getElementById('hex_theater_movie');
   const hex2Button = svgDocument.getElementById('button_floor2_theater');
-  const hex2Menu = svgDocument.getElementById('floor_2_hexmenu');
+  const hex2Menu = svgDocument.getElementById('layer9');
   const itemTheaterOn = svgDocument.getElementById('item_theater_on');
   const itemTheaterOff = svgDocument.getElementById('item_theater_off');
   const itemTheater = svgDocument.getElementById('item_theater');
@@ -106,6 +106,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
   itemLivingRoomOn.style.display = 'none';
   itemBedRoomOff.style.display = 'inline';
   itemBedRoomOn.style.display = 'none';
+  hex2Menu.style.display = 'none';
 
   /*swap views*/
   itemizedbutton.addEventListener('click', () => {
@@ -517,11 +518,9 @@ document.getElementById('svg-object').addEventListener('load', function() {
       itemFloor2MainOn.style.display = 'inline';
       itmeFloor2MainOff.style.display = 'none';
       button_theaterLight.style.opacity = 1;
-      button_theaterLight = 1;
       lightTheater.style.opacity = '0';
       itemTheaterOn.style.display = 'inline';
       itemTheaterOff.style.display = 'none';
-      hex2Button.style.opacity = 1;
       hex2LightButtonOpacity = 1;
 
 
