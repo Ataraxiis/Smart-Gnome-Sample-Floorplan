@@ -75,11 +75,12 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const itemTheaterOff = svgDocument.getElementById('item_theater_off');
   const itemTheater = svgDocument.getElementById('item_theater');
   const lightTheater = svgDocument.getElementById('floor_2_theater_light');
+  const theaterImage = svgDocument.getElementById('theater_image');
   /*Routines*/
   const routineLightsOn = svgDocument.getElementById('button_routine_lightson');
   const routineLightsOff = svgDocument.getElementById('button_routine_lightsoff');
-  const routineMovie = svgDocument.getElementById('item_routine_movie');
-  const routineBed = svgDocument.getElementById('item_routine_bed');
+  const routineMovie = svgDocument.getElementById('button_routine_movie');
+  const routineBed = svgDocument.getElementById('button_routine_bed');
 
   const menubutton = svgDocument.getElementById('layer9');
 
@@ -523,6 +524,20 @@ document.getElementById('svg-object').addEventListener('load', function() {
         }
       });
     }
+
+    if (theaterImage && button_theaterMovie) {
+      button_theaterMovie.addEventListener('click', () => {
+        const currentOpacity = theaterImage.style.opacity;
+  
+        if (currentOpacity === '1') {
+          theaterImage.style.opacity = '0';
+          button_theaterMovie.style.opacity = 0.28;
+        } else {
+          theaterImage.style.opacity = '1';
+          button_theaterMovie.style.opacity = 1;
+        }
+      });
+    }
    
 
     /*Add Routines*/
@@ -600,6 +615,60 @@ document.getElementById('svg-object').addEventListener('load', function() {
       itemTheaterOff.style.display = 'inline';
       hexLightButton.style.opacity = 0.28;
 
+
+    });
+
+
+    routineMovie.addEventListener('click', () => {
+      lightTheater.style.opacity = '0';
+      itemTheaterOn.style.display = 'inline';
+      itemTheaterOff.style.display = 'none';
+      button_theaterLight.style.opacity = 0.28;
+      theaterImage.style.opacity = '1';
+      button_theaterMovie.style.opacity = 1;
+    });
+
+
+    routineBed.addEventListener('click', () => {
+      
+      lightBedroom.style.opacity = '1';
+      itemBedRoomOn.style.display = 'none';
+      itemBedRoomOff.style.display = 'inline';
+      lightCloset.style.opacity = '1';
+      itemClosetOn.style.display = 'none';
+      itemClosetOff.style.display = 'inline';
+      lightGarden.style.opacity = '1';
+      itemGardenOn.style.display = 'none';
+      itemGardenOff.style.display = 'inline';
+      lightKitchen.style.opacity = '1';
+      itemKitchenOn.style.display = 'none';
+      itemKitchenOff.style.display = 'inline';
+      lightLivingRoom.style.opacity = '1';
+      itemLivingRoomOn.style.display = 'none';
+      itemLivingRoomOff.style.display = 'inline';
+      lightSpareRoom.style.opacity = '1';
+      itemSpareroomOn.style.display = 'none';
+      itemSpareroomOff.style.display = 'inline';
+      light_floor2Bedroom.style.opacity = '1';
+      itemFloor2BedOn.style.display = 'none';
+      itemFloor2BedOff.style.display = 'inline';
+      light_floor2Computer.style.opacity = '1';
+      itemFloor2ComputerOn.style.display = 'none';
+      itemFloor2ComputerOff.style.display = 'inline';
+      light_floor2Main.style.opacity = '1';
+      itemFloor2MainOn.style.display = 'none';
+      itmeFloor2MainOff.style.display = 'inline';
+      button_theaterLight.style.opacity = 0.28;
+      lightTheater.style.opacity = '1';
+      itemTheaterOn.style.display = 'none';
+      itemTheaterOff.style.display = 'inline';
+      hexLightButton.style.opacity = 0.28;
+      button_theaterMovie.style.opacity = 0.28;
+      theaterImage.style.opacity = '0';
+      bgDoorLocked.style.display = 'inline';
+      itemLocked.style.display = 'inline';
+      bgDoorUnlocked.style.display = 'none';
+      itemUnlocked.style.display = 'none';
 
     });
 
