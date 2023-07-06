@@ -476,6 +476,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
       }
     });
 
+
+    hex2Button.addEventListener('click', () => {
+      if (hex2Menu.style.display === 'none') {
+        hex2Menu.style.display = 'inline';
+      } else {
+        hex2Menu.style.display = 'none';
+      }
+    });
    
 
     /*Add Routines*/
