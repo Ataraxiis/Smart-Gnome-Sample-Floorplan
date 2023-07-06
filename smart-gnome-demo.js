@@ -131,6 +131,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
     itemizedViewButton.style.opacity = .24;
     floorPlan2ViewButton.style.opacity = 1;
   });
+
+  
   /*interactions*/
   
   buttonDoorLock.addEventListener('click', () => {
@@ -147,7 +149,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
     }
   });
 
-  /*interactions*/
   
   itemLock.addEventListener('click', () => {
     if (bgDoorLocked.style.display === 'none') {
@@ -507,8 +508,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
       light_floor2Main.style.opacity = '0';
       itemFloor2MainOn.style.display = 'inline';
       itmeFloor2MainOff.style.display = 'none';
-      hexLightButton.style.opacity = 1;
-      hexLightButtonOpacity = 1;
+      button_theaterLight.style.opacity = 1;
+      button_theaterLight = 1;
       lightTheater.style.opacity = '0';
       itemTheaterOn.style.display = 'inline';
       itemTheaterOff.style.display = 'none';
