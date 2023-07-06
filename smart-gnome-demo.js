@@ -499,23 +499,25 @@ document.getElementById('svg-object').addEventListener('load', function() {
     });
 
 
-    button_theaterLight.addEventListener('click', () => {
-      const currentOpacity = lightTheater.style.opacity;
-
-      if (currentOpacity === '0') {
-        lightTheater.style.opacity = '1';
-        itemTheaterOn.style.display = 'none';
-        itemTheaterOff.style.display = 'inline';
-        button_theaterLight.style.opacity = 0.28;
-        hex2LightButtonOpacity = 0.28;
-      } else {
-        lightTheater.style.opacity = '0';
-        itemTheaterOn.style.display = 'inline';
-        itemTheaterOff.style.display = 'none';
-        button_theaterLight.style.opacity = 1;
-        hex2LightButtonOpacity = 1;
-      }
-    });
+    if (lightTheater && button_theaterLight) {
+      button_theaterLight.addEventListener('click', () => {
+        const currentOpacity = lightTheater.style.opacity;
+  
+        if (currentOpacity === '0') {
+          lightTheater.style.opacity = '1';
+          itemTheaterOn.style.display = 'none';
+          itemTheaterOff.style.display = 'inline';
+          button_theaterLight.style.opacity = 0.28;
+          hex2LightButtonOpacity = 0.28;
+        } else {
+          lightTheater.style.opacity = '0';
+          itemTheaterOn.style.display = 'inline';
+          itemTheaterOff.style.display = 'none';
+          button_theaterLight.style.opacity = 1;
+          hex2LightButtonOpacity = 1;
+        }
+      });
+    }
 
 
     hex2Button.addEventListener('click', () => {
