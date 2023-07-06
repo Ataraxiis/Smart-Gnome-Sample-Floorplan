@@ -67,6 +67,11 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const itemizedbutton = svgDocument.getElementById('itemizedButton');
   const FloorPlan2Button = svgDocument.getElementById('FloorPlan2Button');
   const FloorPlanButton = svgDocument.getElementById('FloorPlanButton');
+  /*Routines*/
+  const routineLightsOn = svgDocument.getElementById('item_routine_lightson');
+  const routineLightsOff = svgDocument.getElementById('item_routine_lightsoff');
+  const routineMovie = svgDocument.getElementById('item_routine_movie');
+  const routineBed = svgDocument.getElementById('item_routine_bed');
 
 
   /*set starting states*/
@@ -459,5 +464,40 @@ document.getElementById('svg-object').addEventListener('load', function() {
         hexLightButtonOpacity = 1;
       }
     });
+
+});
+
+/*Add Routines*/
+routineLightsOn.addEventListener('click', () => {
+  
+  lightBedroom.style.opacity = '0';
+  itemBedRoomOn.style.display = 'inline';
+  itemBedRoomOff.style.display = 'none';
+  lightCloset.style.opacity = '0';
+  itemClosetOn.style.display = 'inline';
+  itemClosetOff.style.display = 'none';
+  lightGarden.style.opacity = '0';
+  itemGardenOn.style.display = 'inline';
+  itemGardenOff.style.display = 'none';
+  lightKitchen.style.opacity = '0';
+  itemKitchenOn.style.display = 'inline';
+  itemKitchenOff.style.display = 'none';
+  lightLivingRoom.style.opacity = '0';
+  itemLivingRoomOn.style.display = 'inline';
+  itemLivingRoomOff.style.display = 'none';
+  lightSpareRoom.style.opacity = '0';
+  itemSpareroomOn.style.display = 'inline';
+  itemSpareroomOff.style.display = 'none';
+  light_floor2Bedroom.style.opacity = '0';
+  itemFloor2BedOn.style.display = 'inline';
+  itemFloor2BedOff.style.display = 'none';
+  light_floor2Computer.style.opacity = '0';
+  itemFloor2ComputerOn.style.display = 'inline';
+  itemFloor2ComputerOff.style.display = 'none';
+  light_floor2Main.style.opacity = '0';
+  itemFloor2MainOn.style.display = 'inline';
+  itemFloor2MainOff.style.display = 'none';
+  hexLightButton.style.opacity = 1;
+  hexLightButtonOpacity = 1;
 
 });
