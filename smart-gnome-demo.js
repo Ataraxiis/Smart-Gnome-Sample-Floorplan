@@ -70,7 +70,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const button_theaterLight = svgDocument.getElementById('hex_theater_light');
   const button_theaterMovie = svgDocument.getElementById('hex_theater_movie');
   const hex2Button = svgDocument.getElementById('button_floor2_theater');
-  const hex2Menu = svgDocument.getElementById('layer1000');
+  const hex2Menu = svgDocument.getElementById('layer100');
   const itemTheaterOn = svgDocument.getElementById('item_theater_on');
   const itemTheaterOff = svgDocument.getElementById('item_theater_off');
   const itemTheater = svgDocument.getElementById('item_theater');
