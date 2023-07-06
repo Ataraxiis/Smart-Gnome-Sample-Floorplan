@@ -559,9 +559,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
       lightTheater.style.opacity = '0';
       itemTheaterOn.style.display = 'inline';
       itemTheaterOff.style.display = 'none';
-      hex2LightButtonOpacity = 1;
       hexLightButton.style.opacity = 1;
-      hexLightButtonOpacity = 1;
 
 
     });
