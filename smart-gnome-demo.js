@@ -67,6 +67,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const itemizedbutton = svgDocument.getElementById('itemizedButton');
   const FloorPlan2Button = svgDocument.getElementById('FloorPlan2Button');
   const FloorPlanButton = svgDocument.getElementById('FloorPlanButton');
+  const button_theaterLight = svgDocument.getElementById('hex_theater_light');
+  const button_theaterMovie = svgDocument.getElementById('hex_theater_movie');
+  const hex2Button = svgDocument.getElementById('button_floor2_theater');
+  const hex2Menu = svgDocument.getElementById('floor_2_hexmenu');
+  const itemFloor2TheaterOn = svgDocument.getElementById('item_theater_on');
+  const itemFloor2TheaterOff = svgDocument.getElementById('item_theater_off');
+  const itemTheater = svgDocument.getElementById('item_theater');
+  const lightTheater = svgDocument.getElementById('floor_2_theater_light');
   /*Routines*/
   const routineLightsOn = svgDocument.getElementById('button_routine_lightson');
   const routineLightsOff = svgDocument.getElementById('item_routine_lightsoff');
@@ -76,6 +84,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
   /*set starting states*/
   let hexLightButtonOpacity = 0.28;
+  let hex2LightButtonOpacity = 0.28;
+  let hexMovieButtonOPacity = 0.28;
   bgDoorUnlocked.style.display = 'none';
   itemUnlocked.style.display = 'none';
   bgDoorUnlocked.style.opacity = 1;
@@ -465,6 +475,31 @@ document.getElementById('svg-object').addEventListener('load', function() {
       }
     });
 
+    itemTheater.addEventListener('click', () => {
+      const currentOpacity = lightTheater.style.opacity;
+
+      if (currentOpacity === '0') {
+        lightTheater.style.opacity = '1';
+        itemFloor2TheaterOn.style.display = 'none';
+        itemFloor2TheaterOff.style.display = 'inline';
+        button_theaterLight.style.opacity = 0.28;
+        hex2LightButtonOpacity = 0.28;
+      } else {
+        lightTheater.style.opacity = '0';
+        itemFloor2TheaterOn.style.display = 'inline';
+        itemFloor2TheaterOff.style.display = 'none';
+        button_theaterLight.style.opacity = 1;
+        hex2LightButtonOpacity = 1;
+      }
+    });
+
+    hex2Button.addEventListener('click', () => {
+      if (hex2Menu.style.display === 'none') {
+        hex2Menu.style.display = 'inline';
+      } else {
+        hex2Menu.style.display = 'none';
+      }
+    });
 
     /*Add Routines*/
     routineLightsOn.addEventListener('click', () => {
@@ -498,6 +533,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
       itmeFloor2MainOff.style.display = 'none';
       hexLightButton.style.opacity = 1;
       hexLightButtonOpacity = 1;
+      button_theaterLight.style.opacity = 1;
+      lightTheater.style.opacity = '0';
 
     });
 
