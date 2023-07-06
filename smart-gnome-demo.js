@@ -305,8 +305,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
 
       if (floor2Main && light_floor2Main) {
-        floor2Bedroom.addEventListener('click', () => {
-          const currentOpacity = light_floor2Main.style.opacity;
+        floor2Main.addEventListener('click', () => {
+          const currentOpacity = light_.style.opacity;
     
           if (currentOpacity === '0') {
             light_floor2Main.style.opacity = '1';
