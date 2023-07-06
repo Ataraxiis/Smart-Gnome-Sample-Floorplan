@@ -81,11 +81,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const routineMovie = svgDocument.getElementById('item_routine_movie');
   const routineBed = svgDocument.getElementById('item_routine_bed');
 
+  const menubutton = svgDocument.getElementById('layer9');
 
   /*set starting states*/
   let hexLightButtonOpacity = 0.28;
   let hex2LightButtonOpacity = 0.28;
   let hexMovieButtonOPacity = 0.28;
+  menubutton.style.display = 'inline';
+
   bgDoorUnlocked.style.display = 'none';
   itemUnlocked.style.display = 'none';
   bgDoorUnlocked.style.opacity = 1;
