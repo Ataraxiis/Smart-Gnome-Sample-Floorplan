@@ -495,7 +495,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
       itemFloor2ComputerOff.style.display = 'none';
       light_floor2Main.style.opacity = '0';
       itemFloor2MainOn.style.display = 'inline';
-      itemFloor2MainOff.style.display = 'none';
+      itmeFloor2MainOff.style.display = 'none';
       hexLightButton.style.opacity = 1;
       hexLightButtonOpacity = 1;
 
