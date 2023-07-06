@@ -77,7 +77,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const lightTheater = svgDocument.getElementById('floor_2_theater_light');
   /*Routines*/
   const routineLightsOn = svgDocument.getElementById('button_routine_lightson');
-  const routineLightsOff = svgDocument.getElementById('item_routine_lightsoff');
+  const routineLightsOff = svgDocument.getElementById('button_routine_lightsoff');
   const routineMovie = svgDocument.getElementById('item_routine_movie');
   const routineBed = svgDocument.getElementById('item_routine_bed');
 
@@ -560,6 +560,45 @@ document.getElementById('svg-object').addEventListener('load', function() {
       itemTheaterOn.style.display = 'inline';
       itemTheaterOff.style.display = 'none';
       hexLightButton.style.opacity = 1;
+
+
+    });
+
+
+    routineLightsOff.addEventListener('click', () => {
+      
+      lightBedroom.style.opacity = '1';
+      itemBedRoomOn.style.display = 'none';
+      itemBedRoomOff.style.display = 'inline';
+      lightCloset.style.opacity = '1';
+      itemClosetOn.style.display = 'none';
+      itemClosetOff.style.display = 'inline';
+      lightGarden.style.opacity = '1';
+      itemGardenOn.style.display = 'none';
+      itemGardenOff.style.display = 'inline';
+      lightKitchen.style.opacity = '1';
+      itemKitchenOn.style.display = 'none';
+      itemKitchenOff.style.display = 'inline';
+      lightLivingRoom.style.opacity = '1';
+      itemLivingRoomOn.style.display = 'none';
+      itemLivingRoomOff.style.display = 'inline';
+      lightSpareRoom.style.opacity = '1';
+      itemSpareroomOn.style.display = 'none';
+      itemSpareroomOff.style.display = 'inline';
+      light_floor2Bedroom.style.opacity = '1';
+      itemFloor2BedOn.style.display = 'none';
+      itemFloor2BedOff.style.display = 'inline';
+      light_floor2Computer.style.opacity = '1';
+      itemFloor2ComputerOn.style.display = 'none';
+      itemFloor2ComputerOff.style.display = 'inline';
+      light_floor2Main.style.opacity = '1';
+      itemFloor2MainOn.style.display = 'none';
+      itmeFloor2MainOff.style.display = 'inline';
+      button_theaterLight.style.opacity = 0.28;
+      lightTheater.style.opacity = '1';
+      itemTheaterOn.style.display = 'none';
+      itemTheaterOff.style.display = 'inline';
+      hexLightButton.style.opacity = 0.28;
 
 
     });
