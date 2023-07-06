@@ -488,13 +488,20 @@ document.getElementById('svg-object').addEventListener('load', function() {
         itemTheaterOn.style.display = 'none';
         itemTheaterOff.style.display = 'inline';
         button_theaterLight.style.opacity = 0.28;
-        hex2LightButtonOpacity = 0.28;
       } else {
         lightTheater.style.opacity = '0';
         itemTheaterOn.style.display = 'inline';
         itemTheaterOff.style.display = 'none';
         button_theaterLight.style.opacity = 1;
-        hex2LightButtonOpacity = 1;
+      }
+    });
+
+
+    hex2Button.addEventListener('click', () => {
+      if (hex2Menu.style.display === 'none') {
+        hex2Menu.style.display = 'inline';
+      } else {
+        hex2Menu.style.display = 'none';
       }
     });
 
@@ -508,25 +515,14 @@ document.getElementById('svg-object').addEventListener('load', function() {
           itemTheaterOn.style.display = 'none';
           itemTheaterOff.style.display = 'inline';
           button_theaterLight.style.opacity = 0.28;
-          hex2LightButtonOpacity = 0.28;
         } else {
           lightTheater.style.opacity = '0';
           itemTheaterOn.style.display = 'inline';
           itemTheaterOff.style.display = 'none';
           button_theaterLight.style.opacity = 1;
-          hex2LightButtonOpacity = 1;
         }
       });
     }
-
-
-    hex2Button.addEventListener('click', () => {
-      if (hex2Menu.style.display === 'none') {
-        hex2Menu.style.display = 'inline';
-      } else {
-        hex2Menu.style.display = 'none';
-      }
-    });
    
 
     /*Add Routines*/
