@@ -68,7 +68,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const FloorPlan2Button = svgDocument.getElementById('FloorPlan2Button');
   const FloorPlanButton = svgDocument.getElementById('FloorPlanButton');
   /*Routines*/
-  const routineLightsOn = svgDocument.getElementById('item_routine_lightson');
+  const routineLightsOn = svgDocument.getElementById('button_routine_lightson');
   const routineLightsOff = svgDocument.getElementById('item_routine_lightsoff');
   const routineMovie = svgDocument.getElementById('item_routine_movie');
   const routineBed = svgDocument.getElementById('item_routine_bed');
