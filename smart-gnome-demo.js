@@ -52,7 +52,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const floor2Bedroom = svgDocument.getElementById('button_floor2_bedroom');
   const light_floor2Bedroom = svgDocument.getElementById('floor_2_bed_light');
   const floor2Main = svgDocument.getElementById('button_floor2_main');
-  const light_floor2Main = svgDocument.getElementById('floor_2_bed_light');
+  const light_floor2Main = svgDocument.getElementById('floor_2_main_light');
   const floor2Computer = svgDocument.getElementById('button_floor2_computer');
   const light_floor2Computer = svgDocument.getElementById('floor_2_computer_light');
   const item_computer = svgDocument.getElementById('item_computer');
