@@ -106,7 +106,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
   itemLivingRoomOn.style.display = 'none';
   itemBedRoomOff.style.display = 'inline';
   itemBedRoomOn.style.display = 'none';
-  hex2Menu.style.display = 'none';
 
   /*swap views*/
   itemizedbutton.addEventListener('click', () => {
