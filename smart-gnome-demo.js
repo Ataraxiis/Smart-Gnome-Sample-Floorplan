@@ -475,31 +475,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
       }
     });
 
-    itemTheater.addEventListener('click', () => {
-      const currentOpacity = lightTheater.style.opacity;
-
-      if (currentOpacity === '0') {
-        lightTheater.style.opacity = '1';
-        itemFloor2TheaterOn.style.display = 'none';
-        itemFloor2TheaterOff.style.display = 'inline';
-        button_theaterLight.style.opacity = 0.28;
-        hex2LightButtonOpacity = 0.28;
-      } else {
-        lightTheater.style.opacity = '0';
-        itemFloor2TheaterOn.style.display = 'inline';
-        itemFloor2TheaterOff.style.display = 'none';
-        button_theaterLight.style.opacity = 1;
-        hex2LightButtonOpacity = 1;
-      }
-    });
-
-    hex2Button.addEventListener('click', () => {
-      if (hex2Menu.style.display === 'none') {
-        hex2Menu.style.display = 'inline';
-      } else {
-        hex2Menu.style.display = 'none';
-      }
-    });
+   
 
     /*Add Routines*/
     routineLightsOn.addEventListener('click', () => {
@@ -533,8 +509,6 @@ document.getElementById('svg-object').addEventListener('load', function() {
       itmeFloor2MainOff.style.display = 'none';
       hexLightButton.style.opacity = 1;
       hexLightButtonOpacity = 1;
-      button_theaterLight.style.opacity = 1;
-      lightTheater.style.opacity = '0';
 
     });
 
