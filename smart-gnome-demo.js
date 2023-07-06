@@ -71,8 +71,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const button_theaterMovie = svgDocument.getElementById('hex_theater_movie');
   const hex2Button = svgDocument.getElementById('button_floor2_theater');
   const hex2Menu = svgDocument.getElementById('floor_2_hexmenu');
-  const itemFloor2TheaterOn = svgDocument.getElementById('item_theater_on');
-  const itemFloor2TheaterOff = svgDocument.getElementById('item_theater_off');
+  const itemTheaterOn = svgDocument.getElementById('item_theater_on');
+  const itemTheaterOff = svgDocument.getElementById('item_theater_off');
   const itemTheater = svgDocument.getElementById('item_theater');
   const lightTheater = svgDocument.getElementById('floor_2_theater_light');
   /*Routines*/
@@ -510,8 +510,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
       hexLightButton.style.opacity = 1;
       hexLightButtonOpacity = 1;
       lightTheater.style.opacity = '0';
-      itemFloor2TheaterOn.style.display = 'inline';
-      itemFloor2TheaterOff.style.display = 'none';
+      itemTheaterOn.style.display = 'inline';
+      itemTheaterOff.style.display = 'none';
       hex2Button.style.opacity = 1;
       hex2LightButtonOpacity = 1;
 
