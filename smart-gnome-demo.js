@@ -620,9 +620,9 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
 
     routineMovie.addEventListener('click', () => {
-      lightTheater.style.opacity = '0';
-      itemTheaterOn.style.display = 'inline';
-      itemTheaterOff.style.display = 'none';
+      lightTheater.style.opacity = '1';
+      itemTheaterOn.style.display = 'none';
+      itemTheaterOff.style.display = 'inline';
       button_theaterLight.style.opacity = 0.28;
       theaterImage.style.opacity = '1';
       button_theaterMovie.style.opacity = 1;
