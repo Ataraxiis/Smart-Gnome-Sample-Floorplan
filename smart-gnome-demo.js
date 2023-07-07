@@ -76,6 +76,8 @@ document.getElementById('svg-object').addEventListener('load', function() {
   const itemTheater = svgDocument.getElementById('item_theater');
   const lightTheater = svgDocument.getElementById('floor_2_theater_light');
   const theaterImage = svgDocument.getElementById('theater_image');
+  const theaterLightButton = svgDocument.getElementById('button_theaterlight');
+  const theaterMovieButton = svgDocument.getElementById('button_theatermovie');
   /*Routines*/
   const routineLightsOn = svgDocument.getElementById('button_routine_lightson');
   const routineLightsOff = svgDocument.getElementById('button_routine_lightsoff');
@@ -508,7 +510,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
 
 
     if (lightTheater && button_theaterLight) {
-      button_theaterLight.addEventListener('click', () => {
+      theaterLightButton.addEventListener('click', () => {
         const currentOpacity = lightTheater.style.opacity;
   
         if (currentOpacity === '0') {
@@ -526,7 +528,7 @@ document.getElementById('svg-object').addEventListener('load', function() {
     }
 
     if (theaterImage && button_theaterMovie) {
-      button_theaterMovie.addEventListener('click', () => {
+      theaterMovieButton.addEventListener('click', () => {
         const currentOpacity = theaterImage.style.opacity;
   
         if (currentOpacity === '1') {
